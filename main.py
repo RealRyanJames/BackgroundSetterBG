@@ -1,4 +1,5 @@
 from tkinter import *
+from Conversion.rgb2hex import ConversionColor
 
 running = True
 
@@ -48,6 +49,11 @@ def main():
                     int(text.get("1.0", "end"))
                 )))
 
+                color_codes = ConversionColor(int(text.get("1.0", "end")))
+                with open("color.txt", "a") as f:
+                    f.write(str(color_codes.getColorR()))
+                    f.write(str(color_codes.getColorR()))
+                    f.write(str(color_codes.getColorR()))
 
 
 
@@ -63,7 +69,7 @@ def main():
         text.pack()
 
         b.pack(side="bottom", anchor="n")
-    
+
         tk.mainloop()
 
 main()
